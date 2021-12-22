@@ -1,64 +1,25 @@
 <script lang='ts'>
-	let firstName = 'Brendan';
-	let lastName = 'Laney';
-	let color = 'blue';
-	let showText = false;
-	let users = [
-		{ id: 1, name: 'Bo' },
-		{ id: 2, name: 'Bill' },
-		{ id: 3, name: 'Jill' }
-	];
+	import FeedbackList from './components/FeedbackList.svelte'
 
-	$: name = firstName + ' ' + lastName;
-
-	const toggle = () => {
-		color = color === 'blue' ? 'red' : 'blue';
-		showText = !showText;
-		users = [...users, { id: 4, name: 'Jenny' }];
-	}
+	let feedback = [
+		{ 
+			id: 1, 
+			rating: 10,
+			text: 'Enim eu turpis egestas pretium. Amet consectetur adipiscing elit ut aliquam purus sit amet. Leo vel fringilla est ullamcorper eget nulla facilisi etiam.'
+		},
+		{ 
+			id: 2, 
+			rating: 8,
+			text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Et tortor at risus viverra adipiscing. Feugiat nisl pretium fusce id velit ut tortor pretium. Sagittis aliquam malesuada bibendum arcu vitae elementum curabitur.'
+		},
+		{ 
+			id: 3, 
+			rating: 7,
+			text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Id neque aliquam vestibulum morbi blandit cursus risus. Ut pharetra sit amet aliquam id diam maecenas ultricies.'
+		},
+	]
 </script>
 
 <main>
-	
-	<h1 style='color: {color}'>Hello {name}!</h1>
-	
-	{#if showText}
-
-		<p>Visit the <a href='https://svelte.dev/tutorial'>
-			Svelte tutorial</a> to learn how to build Svelte apps.
-		</p>
-	
-		{:else}
-		<p>Else case text</p>
-
-	{/if}
-
-	<button on:click={toggle}>Click</button>
-
-	{#each users as user (user.id)}
-		<h3>{user.id}: {user.name}</h3>
-	{/each}
-	
+  <FeedbackList feedback={feedback} />
 </main>
-
-<style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
-</style>

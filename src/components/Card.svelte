@@ -9,5 +9,6 @@
     padding: 1.75rem 1.25rem;
     margin: 1rem 0;
     position: relative;
+    border: 1px solid #eee;
   }
 </style>

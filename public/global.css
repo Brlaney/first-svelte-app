@@ -9,7 +9,8 @@
 body {
 	font-family: 'Rubik', sans-serif;
 	line-height: 1.6;
-	background-color: #202142;
+	/* background-color: #202142; */
+	background-color: #272D2D;
 }
 
 ul {

@@ -8,6 +8,7 @@
 		jobLocation: [],
 		remoteWork: false,
 		skillSet: [],
+		yearsOfExperience: '',
 	}
 </script>
 
@@ -39,7 +40,7 @@
 
 		<div>
 			<label for='profile'>Profile Summary</label>
-			<textarea id='profile' bind:value={formValues.profileSummary} />
+			<textarea class='textArea' id='profile' bind:value={formValues.profileSummary} />
 		</div>
 
 		<div>
@@ -70,7 +71,9 @@
 		</div>
 
 		<div class='oneline'>
-			<label for='skillSet'>Skill set</label>
+			<div class='selection'>
+				<label class='skillsLabel' for='skillSet'>Skill Set:</label>
+			</div>
 			<div class='selection'>
 				<input type='checkbox' id='html' value='html' bind:group={formValues.skillSet} />
 				<label for='html'>Html</label>
@@ -84,6 +87,7 @@
 				<label for='javascript'>Javascript</label>
 			</div>
 		</div>
+		
 	</form>
 </main>
 
@@ -93,6 +97,13 @@
 	main {
 		margin: 0.7rem;
 		padding: 0.7rem;
+		height: 100vh;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.textArea {
+		height: 120px;
 	}
 
 	.code {
@@ -102,18 +113,24 @@
 	}
 
 	div {
+		width: 25%;
 		margin: 0.7rem 0;
 		padding: 0.4rem 0;
 		display: flex;
 		flex-direction: column;
-		width: 33%;
 	}
 
   .oneline {
-		width: 33%;
+		width: 25%;
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
+	}
+
+	.skillsLabel {
+		width: 100px;
+		height: 100%;
+		justify-content: flex-start;
 	}
 
 	.selection {

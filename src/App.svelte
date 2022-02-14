@@ -7,6 +7,7 @@
 		country: '',
 		jobLocation: [],
 		remoteWork: false,
+		skillSet: [],
 	}
 </script>
 
@@ -27,7 +28,7 @@
 
 <main>
 	<form>
-		<div>
+		<div class='code'>
 			<pre>{JSON.stringify(formValues, null, 2)}</pre>
 		</div>
 
@@ -65,7 +66,23 @@
 
 		<div class='oneline'>
 			<label for='remoteWork'>Are you willing to work remotely?</label>
-			<input type='checkbox' id='remoteWork' />
+			<input type='checkbox' id='remoteWork' bind:checked={formValues.remoteWork} />
+		</div>
+
+		<div class='oneline'>
+			<label for='skillSet'>Skill set</label>
+			<div class='selection'>
+				<input type='checkbox' id='html' value='html' bind:group={formValues.skillSet} />
+				<label for='html'>Html</label>
+			</div>
+			<div class='selection'>
+				<input type='checkbox' id='css' value='css' bind:group={formValues.skillSet} />
+				<label for='css'>CSS</label>
+			</div>
+			<div class='selection'>
+				<input type='checkbox' id='javascript' value='javascript' bind:group={formValues.skillSet} />
+				<label for='javascript'>Javascript</label>
+			</div>
 		</div>
 	</form>
 </main>
@@ -78,7 +95,13 @@
 		padding: 0.7rem;
 	}
 
-	form div {
+	.code {
+		display: flex;
+		flex-direction: row;
+		height: 200px;
+	}
+
+	div {
 		margin: 0.7rem 0;
 		padding: 0.4rem 0;
 		display: flex;
@@ -86,10 +109,14 @@
 		width: 33%;
 	}
 
-	form .oneline {
+  .oneline {
 		width: 33%;
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
+	}
+
+	.selection {
+		display: inline;
 	}
 </style>
